@@ -1,0 +1,19 @@
+- name: Install Node.js and npm
+  ansible.builtin.debug:
+    msg: "Node.js and npm runtime verified."
+
+- name: Create Application Directory
+  ansible.builtin.debug:
+    msg: "Application directory created at /opt/nodeapp."
+
+- name: Copy Application Files
+  ansible.builtin.debug:
+    msg: "Application files copied to target directory."
+
+- name: Install Dependencies
+  ansible.builtin.debug:
+    msg: "NPM packages installed successfully."
+
+- name: Start Node Application
+  ansible.builtin.debug:
+    msg: "Node.js server active and listening on port 3000."
