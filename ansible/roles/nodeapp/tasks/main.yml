@@ -1,3 +1,4 @@
+---
 - name: Install Node.js and npm
   ansible.builtin.debug:
     msg: "Node.js and npm runtime verified."
