@@ -1,31 +1,6 @@
 ---
-- name: Deploy Node.js Application on Localhost
+- name: Deploy Node App
   hosts: webservers
   gather_facts: false
-
-  tasks:
-    - name: Verify application file exists
-      ansible.builtin.stat:
-        path: "{{ playbook_dir }}/../app.js"
-      register: app_file
-
-    - name: Fail if app.js is not present
-      ansible.builtin.fail:
-        msg: "app.js was not found in the project root."
-      when: not app_file.stat.exists
-
-    - name: Install dependencies
-      ansible.builtin.command:
-        cmd: npm install
-      args:
-        chdir: "{{ playbook_dir }}/.."
-
-    - name: Execute automated unit tests
-      ansible.builtin.command:
-        cmd: npm test
-      args:
-        chdir: "{{ playbook_dir }}/.."
-
-    - name: Display deployment readiness status
-      ansible.builtin.debug:
-        msg: "Node.js application verified, tested, and ready for deployment."
+  roles:
+    - nodeapp
